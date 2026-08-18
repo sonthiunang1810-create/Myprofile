@@ -1,242 +1,106 @@
-/* Reset & Base Styling */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-  /* Nền Gradient chuyển màu hình cầu */
-  background: radial-gradient(circle at 10% 20%, rgba(18, 18, 38, 1) 0%, rgba(32, 12, 52, 1) 90%);
-  color: #f0f0f0;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* Header & Navigation với hiệu ứng kính mờ (Glassmorphism) */
-header {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.2rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-}
-
-nav {
-  max-width: 1000px;
-  margin: 0 auto;
+/* Student Management Styles */
+.student-form {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-/* Chữ Logo đổi màu liên tục (Rainbow Gradient Animation) */
-.logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  background: linear-gradient(90deg, #ff007f, #7928ca, #00dfd8, #ff007f);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbowText 6s ease infinite;
-}
-
-@keyframes rainbowText {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-weight: 600;
-  position: relative;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #00dfd8;
-  text-shadow: 0 0 10px rgba(0, 223, 216, 0.8);
-}
-
-/* Container chung */
-.container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-/* Khung Section hiệu ứng kính mờ & viền Neon khi hover */
-section {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 35px;
-  margin-bottom: 35px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-section:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 0, 127, 0.4);
-  box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
-}
-
-h2 {
-  font-size: 1.6rem;
-  background: linear-gradient(90deg, #00dfd8, #007cf0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-bottom: 10px;
+  flex-direction: column;
+  gap: 15px;
   margin-bottom: 25px;
-  border-bottom: 2px solid rgba(0, 223, 216, 0.3);
 }
 
-/* Profile Card */
-.profile-card {
+.form-group {
   display: flex;
-  align-items: center;
-  gap: 35px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
-/* Avatar phát sáng hiệu ứng Neon */
-.avatar {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  padding: 4px;
-  background: linear-gradient(45deg, #ff007f, #7928ca, #00dfd8);
-  box-shadow: 0 0 25px rgba(255, 0, 127, 0.5);
-  animation: pulseGlow 4s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), 0 0 30px rgba(121, 40, 202, 0.2); }
-  100% { box-shadow: 0 0 30px rgba(0, 223, 216, 0.8), 0 0 50px rgba(255, 0, 127, 0.5); }
-}
-
-.profile-info h1 {
-  font-size: 2.2rem;
+.form-group input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-}
-
-.profile-info p.title {
-  font-weight: bold;
-  font-size: 1.1rem;
-  background: linear-gradient(90deg, #ff007f, #7928ca);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 12px;
-}
-
-/* Skills Grid với thẻ màu Neon */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 18px;
-}
-
-.skill-item {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  padding: 14px;
-  text-align: center;
-  border-radius: 12px;
-  font-weight: bold;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-item:hover {
-  background: linear-gradient(135deg, rgba(255,0,127,0.2), rgba(121,40,202,0.2));
-  border-color: #ff007f;
-  transform: scale(1.08) translateY(-3px);
-  box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
-}
-
-/* Projects List */
-.project-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.project-item {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 20px;
-  border-radius: 12px;
-  border-left: 5px solid #00dfd8;
-  transition: all 0.3s ease;
-}
-
-.project-item:hover {
-  border-left-color: #ff007f;
-  background: rgba(255, 255, 255, 0.07);
-  transform: translateX(8px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.project-item h3 {
-  color: #00dfd8;
-  margin-bottom: 6px;
-}
-
-/* Interactive Zone & Button Neon */
-.interactive-zone {
-  text-align: center;
-}
-
-button {
-  background: linear-gradient(90deg, #ff007f, #7928ca);
-  color: #fff;
-  border: none;
-  padding: 14px 32px;
-  font-size: 1.05rem;
-  font-weight: bold;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(0, 223, 216, 0.8);
-  background: linear-gradient(90deg, #7928ca, #00dfd8);
-}
-
-#quote-display {
-  margin-top: 20px;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #ff007f;
-  text-shadow: 0 0 8px rgba(255, 0, 127, 0.3);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #a0a0a0;
   font-size: 0.95rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus {
+  border-color: #00dfd8;
+  box-shadow: 0 0 10px rgba(0, 223, 216, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-secondary {
+  background: #6c757d !important;
+  box-shadow: none !important;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+}
+
+/* Responsive Table */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.student-table th, .student-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.student-table th {
+  background: rgba(0, 223, 216, 0.15);
+  color: #00dfd8;
+  font-weight: bold;
+}
+
+.student-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-edit, .btn-delete {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #ffb703;
+  color: #000;
+  box-shadow: none;
+}
+
+.btn-delete {
+  background: #e63946;
+  color: #fff;
+  box-shadow: none;
 }

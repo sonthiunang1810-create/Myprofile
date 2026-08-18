@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang Giới Thiệu Bản Thân</title>
-  <!-- Kết nối file CSS -->
+  <title>Trang Giới Thiệu Bản Thân - Nguyễn Văn Sơn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +16,7 @@
         <li><a href="#about">Giới thiệu</a></li>
         <li><a href="#skills">Kỹ năng</a></li>
         <li><a href="#projects">Dự án</a></li>
+        <li><a href="#student-management">QL Sinh viên</a></li>
       </ul>
     </nav>
   </header>
@@ -25,10 +25,10 @@
     <!-- Phần Giới thiệu bản thân -->
     <section id="about">
       <div class="profile-card">
-        <img src="avt.jpg" alt="Ảnh đại diện" class="avatar">
+        <img src="avatar.jpg" alt="Ảnh đại diện" class="avatar">
         <div class="profile-info">
           <h1>Xin chào, Tôi là Nguyễn Văn Sơn</h1>
-          <h2>Học Tại Trường DHHP , Mã Sinh Viên 233148201030 </h2>
+          <h2>Học Tại Trường ĐHHP , Mã Sinh Viên 233148201030</h2>
           <p class="title">Lập trình viên Web / Sinh viên Công nghệ Thông tin</p>
           <p>Tôi đam mê xây dựng các ứng dụng web tối ưu, thân thiện với người dùng và liên tục trau dồi các công nghệ mới.</p>
         </div>
@@ -63,6 +63,55 @@
       </div>
     </section>
 
+    <!-- PHẦN MỚI BỔ SUNG: Ứng dụng Quản lý Sinh viên -->
+    <section id="student-management">
+      <h2>Ứng Dụng Quản Lý Sinh Viên</h2>
+      
+      <!-- Form nhập dữ liệu -->
+      <form id="student-form" class="student-form">
+        <input type="hidden" id="student-index" value="-1">
+        
+        <div class="form-group">
+          <input type="text" id="student-id" placeholder="Mã sinh viên (VD: 233148201030)" required>
+          <input type="text" id="student-name" placeholder="Họ và tên" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" id="student-class" placeholder="Lớp / Khoa" required>
+          <input type="number" step="0.1" min="0" max="10" id="student-gpa" placeholder="Điểm GPA (0.0 - 10.0)" required>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" id="btn-save">Thêm Sinh Viên</button>
+          <button type="button" id="btn-cancel" class="btn-secondary" style="display: none;">Hủy</button>
+        </div>
+      </form>
+
+      <!-- Thanh tìm kiếm -->
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="🔍 Tìm kiếm theo tên hoặc mã sinh viên...">
+      </div>
+
+      <!-- Bảng danh sách sinh viên -->
+      <div class="table-responsive">
+        <table class="student-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã SV</th>
+              <th>Họ và Tên</th>
+              <th>Lớp / Khoa</th>
+              <th>Điểm GPA</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody id="student-list">
+            <!-- Dữ liệu sinh viên sẽ tự động render tại đây -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- Phần Tương tác JS -->
     <section class="interactive-zone">
       <h2>Góc Cảm Hứng</h2>
@@ -72,10 +121,9 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 Nguyễn Văn A. All rights reserved.</p>
+    <p>&copy; 2026 Nguyễn Văn Sơn. All rights reserved.</p>
   </footer>
 
-  <!-- Kết nối file JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
